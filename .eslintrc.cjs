@@ -1,0 +1,58 @@
+module.exports = {
+  env: {
+    browser: true,
+    node: true,
+    es2021: true,
+    jest: true,
+  },
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
+  ],
+  overrides: [],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+  },
+  plugins: ['react', '@typescript-eslint', 'prefer-arrow', 'sort-keys-fix', 'import'],
+  rules: {
+    'sort-keys-fix/sort-keys-fix': 'error',
+    'prefer-arrow/prefer-arrow-functions': [
+      'error',
+      {
+        disallowPrototype: true,
+        singleReturnOnly: false,
+        classPropertiesAllowed: false,
+      },
+    ],
+    '@typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/no-explicit-any': 'warn',
+    '@typescript-eslint/no-unused-vars': ['error', { 'varsIgnorePattern': '^_' }],
+    'react/react-in-jsx-scope': 'off',
+    'react/prop-types': 'off',
+    'react/jsx-sort-props': ['error', {
+      'callbacksLast': true,
+      'shorthandFirst': true,
+      'noSortAlphabetically': false,
+      'reservedFirst': true,
+    }],
+    'import/order': ['error', {
+      'groups': ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+      'newlines-between': 'always',
+    }],
+    'no-console': 'error',
+    'no-undef': 'error',
+    'no-const-assign': 'error',
+    'no-var': 'error',
+    'prefer-const': 'error',
+    'arrow-spacing': 'error',
+    'no-use-before-define': 'error',
+    'import/no-cycle': 'error',
+    'import/no-duplicates': 'error',
+    indent: ['warn', 'tab'],
+    'linebreak-style': ['error', 'unix'],
+    quotes: ['error', 'single'],
+  },
+};

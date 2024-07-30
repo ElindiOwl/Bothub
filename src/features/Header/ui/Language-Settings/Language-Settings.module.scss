@@ -1,0 +1,65 @@
+.langSettings {
+
+}
+
+.langSettings__button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  color: var(--color-darktheme-base-white);
+}
+
+.langSettings__button:hover {
+  color: var(--color-darktheme-primary);
+}
+
+.langSettings__button_active {
+  color: var(--color-darktheme-primary);
+}
+
+.langSettings__text {
+  font: var(--body-m-semibold)
+}
+
+.langSettings__globe {
+  width: 18px;
+  height: 18px;
+}
+
+.langSettings__arrow svg {
+  margin: 0 0 3px 3px;
+  transition: transform 0.3s ease;
+}
+
+.langSettings__button_active svg {
+  transform: rotate(-180deg);
+}
+
+.langSettings__dropdown {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  width: 78px;
+  height: fit-content;
+  top: 48px;
+  right: 157px;
+  background-color: var(--color-darktheme-gray-scale-gray-3);
+  border: var(--border-gray-2);
+  border-radius: 8px;
+  padding: 16px 20px;
+}
+
+@media screen and (max-width: 1100px) {
+  .langSettings__dropdown {
+    right: 231px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .langSettings__dropdown {
+    right: 61px;
+  }
+}

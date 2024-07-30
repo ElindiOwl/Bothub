@@ -1,0 +1,21 @@
+.languageOption {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  color: var(--color-darktheme-base-white);
+  font: var(--body-m-semibold);
+  cursor: pointer;
+  padding: 6px 0;
+}
+
+.languageOption:first-child {
+  padding-top: 0;
+}
+
+.languageOption:last-child {
+  padding-bottom: 0;
+}
+
+.languageOption:hover {
+  color: var(--color-darktheme-primary-light);
+}

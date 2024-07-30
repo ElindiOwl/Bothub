@@ -1,0 +1,15 @@
+.primaryButton {
+  padding: 10px 18px 10px 18px;
+  border: none;
+  background-color: var(--color-darktheme-primary);
+  color: var(--color-darktheme-base-white);
+  box-shadow: var(--button-shadow);
+  border-radius: 8px;
+  font: var(--button-sm);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.primaryButton:hover {
+  background-color: var(--color-darktheme-primary-strong);
+}

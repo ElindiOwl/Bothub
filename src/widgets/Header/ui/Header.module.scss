@@ -1,0 +1,45 @@
+.header {
+  width: 1370px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.header__anchor {
+  position: relative;
+}
+
+.header__content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__navigation {
+  display: flex;
+  align-items: center;
+}
+
+.header__options {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 36px;
+}
+
+.header__button {
+  display: block;
+}
+
+@media screen and (max-width: 1100px) {
+  .header__button_addition {
+    height: 38px !important;
+  }
+  .header__options {
+    gap: 34px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header__button {
+    display: none;
+  }
+}

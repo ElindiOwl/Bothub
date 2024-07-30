@@ -1,0 +1,18 @@
+.line {
+  transition: all 0.5s ease;
+}
+
+.open .line1 {
+  transform: translateX(6px) rotate(45deg);
+  transition: all 0.5s ease;
+}
+
+.open .line2 {
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.open .line3 {
+  transform: translateY(7px) translateX(-6px) rotate(-45deg);
+  transition: all 0.5s ease;
+}
