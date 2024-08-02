@@ -32,3 +32,15 @@
   color: var(--color-darktheme-base-white);
   font: var(--body-xs-regular)
 }
+
+@media screen and (max-width: 1100px) {
+  .link {
+    width: 47%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .link {
+    width: 100%;
+  }
+}

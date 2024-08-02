@@ -1,6 +1,5 @@
-import { Button } from 'shared/ui';
 import { HEADER, HeaderLogo } from 'entities/Header';
-import { BurgerNavigation, LanguageSettings, RegularNavigation } from 'features/Header';
+import { AuthorizationButton, BurgerNavigation, LanguageSettings, RegularNavigation } from 'features/Header';
 
 
 import style from './Header.module.scss';
@@ -17,9 +16,7 @@ export const Header = () => {
 				</div>
 				<div className={style.header__options}>
 					<LanguageSettings />
-					<div className={style.header__button}>
-						<Button additionalStyles={style.header__button_addition} text={'Авторизация'} />
-					</div>
+					<AuthorizationButton />
 					<BurgerNavigation />
 				</div>
 			</nav>

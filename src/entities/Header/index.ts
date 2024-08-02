@@ -1,5 +1,4 @@
 export * from './ui/Nav-item/Nav-item.tsx';
-export * from './ui/Header-navigation/Header-navigation.tsx';
 export * from './ui/Heading-logo/Header-logo.tsx';
 export * from './lib/index.ts';
 export * from './lib/constants.ts';

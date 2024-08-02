@@ -1,0 +1,15 @@
+.authButton {
+  display: block;
+}
+
+@media screen and (max-width: 1100px) {
+  .authButton_addition {
+    height: 38px !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .authButton {
+    display: none;
+  }
+}

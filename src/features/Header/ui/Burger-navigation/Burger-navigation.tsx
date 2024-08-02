@@ -1,24 +1,40 @@
 import { Button, DropdownMenu, NavigationList } from 'shared/ui';
-import { HEADER, navItems } from 'entities/Header';
+import { HEADER, navLinks } from 'entities/Header';
 import { BurgerMenuSVG } from 'shared/assets';
-import { useMenu } from 'shared/lib';
+import { useIdToHook, useMenu } from 'shared/lib';
+import { CompanyProductsAccordion } from 'features/Header';
 
 import style from './Burger-navigation.module.scss';
 
 export const BurgerNavigation = () => {
-	const { isMenuOpen, toggleMenu } = useMenu();
-	const headerElement = document.getElementById(HEADER);
-	const listNode = <NavigationList mapToUse={navItems} styleToUse={style.burgerNav__list} />;
-	const buttonNode = <BurgerMenuSVG isOpen={isMenuOpen} toggleMenu={toggleMenu} />;
+	const headerElement = useIdToHook(HEADER);
+	const listNode = <NavigationList linksToUse={navLinks} nodesToUse={[<CompanyProductsAccordion />]}
+		styleToUse={style.burgerNav__list} />;
+	const menuName = 'BurgerNavigation';
+
+	const { isMenuOpen, toggleMenu, menuRef } = useMenu(menuName);
+
+	const handleClick = () => toggleMenu();
+
+	const buttonNode = <BurgerMenuSVG isOpen={isMenuOpen} toggleMenu={handleClick} />;
+
+	if (!headerElement) {
+		return null;
+	}
 
 	return (
-		<div className={style.burgerNav}>
-			<DropdownMenu elementToHook={headerElement}
+		<div ref={menuRef} className={style.burgerNav}>
+			<DropdownMenu
+				elementToHook={headerElement}
 				listNodeToUse={listNode}
-				shellContainerStyling={style.burgerNav__dropDown}>
-				<Button additionalStyles={style.burgerNav__button}
+				menuName={menuName}
+				shellContainerStyling={style.burgerNav__dropDown}
+				onMenuToggle={() => {
+				}}>
+				<Button
+					additionalStyles={style.burgerNav__button}
 					text={buttonNode}
-					onClick={toggleMenu}
+					onClick={handleClick}
 				/>
 			</DropdownMenu>
 		</div>

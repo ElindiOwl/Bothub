@@ -1,17 +1,21 @@
-import { NavItem } from 'entities/Header';
-import { FC } from 'react';
+import { NavItem, NavLink } from 'entities/Header';
+import { FC, ReactNode } from 'react';
 
 interface NavigationListProps {
-    mapToUse: string[];
+    linksToUse: NavLink[];
     styleToUse: string;
+    nodesToUse?: ReactNode[];
 }
 
-export const NavigationList: FC<NavigationListProps> = ({ mapToUse, styleToUse }) => {
+export const NavigationList: FC<NavigationListProps> = ({ linksToUse, styleToUse, nodesToUse = [] }) => {
 	return (
 		<nav className={styleToUse}>
-			{mapToUse.map(({ item, link, isExternal, isNode }, index) =>
+			{nodesToUse.map((node) => (
+				<>{node}</>
+			))}
+			{linksToUse.map(({ item, link, isExternal }, index) =>
 				<div key={index}>
-					<NavItem isExternal={isExternal} isNode={isNode} itemToUse={item} linkToUse={link} />
+					<NavItem isExternal={isExternal} itemToUse={item} linkToUse={link} />
 				</div>,
 			)}
 		</nav>

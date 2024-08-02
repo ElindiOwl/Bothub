@@ -1,15 +1,19 @@
-import { useMenu } from 'shared/lib';
-import { FC, MouseEventHandler, ReactNode } from 'react';
+import { FC, MouseEventHandler, ReactNode, useEffect } from 'react';
 import { DropdownShell } from 'shared/ui';
+import { cn, useMenu } from 'shared/lib';
 
 interface DropdownControlProps {
-    listNodeToUse: ReactNode,
-    elementToHook: HTMLElement,
-    children: ReactNode,
+    listNodeToUse: ReactNode;
+    elementToHook: HTMLElement;
+    children: ReactNode;
 }
 
 interface DropdownMenuProps extends DropdownControlProps {
     shellContainerStyling: string;
+    onMenuToggle: (isOpen: boolean) => void;
+    menuName: string;
+    activeStyle?: string;
+    inactiveStyle?: string;
 }
 
 export const DropdownMenu: FC<DropdownMenuProps> = ({
@@ -17,10 +21,22 @@ export const DropdownMenu: FC<DropdownMenuProps> = ({
 	elementToHook,
 	children,
 	shellContainerStyling,
+	onMenuToggle,
+	menuName,
+	activeStyle = '',
+	inactiveStyle = '',
 }) => {
-	const { isMenuOpen, toggleMenu, menuRef } = useMenu();
-	const hookElement = elementToHook;
-	const listNode = listNodeToUse;
+	const { isMenuOpen, toggleMenu, menuRef } = useMenu(menuName);
+	const appliedStyle = cn(
+		[inactiveStyle],
+		{ [activeStyle]: isMenuOpen },
+	);
+
+	useEffect(() => {
+		if (onMenuToggle) {
+			onMenuToggle(isMenuOpen);
+		}
+	}, [isMenuOpen, onMenuToggle]);
 
 	const handleClickInside: MouseEventHandler<HTMLDivElement> = (event) => {
 		event.stopPropagation();
@@ -28,12 +44,16 @@ export const DropdownMenu: FC<DropdownMenuProps> = ({
 
 	return (
 		<div ref={menuRef} onClick={handleClickInside}>
-			<div onClick={toggleMenu}>
+			<div className={appliedStyle} onClick={toggleMenu}>
 				{children}
 			</div>
 			{isMenuOpen && (
-				<DropdownShell containerStyling={shellContainerStyling} nodeToUse={listNode}
-					portalElement={hookElement} toggleRef={menuRef} />
+				<DropdownShell
+					containerStyling={shellContainerStyling}
+					nodeToUse={listNodeToUse}
+					portalElement={elementToHook}
+					toggleRef={menuRef}
+				/>
 			)}
 		</div>
 	);

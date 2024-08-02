@@ -13,7 +13,6 @@ interface DropdownShellProps extends DropdownContentProps {
 }
 
 export const DropdownShell: FC<DropdownShellProps> = ({ portalElement, containerStyling, nodeToUse }) => {
-
 	return (
 		<Portal portal={portalElement}>
 			<div className={cn(['', containerStyling])}>

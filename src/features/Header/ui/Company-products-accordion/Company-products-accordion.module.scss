@@ -1,0 +1,30 @@
+.accordion__description {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px 38px;
+  height: fit-content;
+  background-color: var(--color-darktheme-gray-scale-gray-3);
+  margin-top: 13px;
+  padding: 9px;
+  border: var(--border-gray-2);
+  border-radius: 6px;
+}
+
+.accordion__text {
+  font: var(--body-m-semibold);
+}
+
+.accordion__header {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  color: var(--color-darktheme-base-white);
+}
+
+.accordion__header:hover {
+  color: var(--color-darktheme-primary);
+}
+
+.accordion__header_onClick {
+  color: var(--color-darktheme-primary-light) !important;
+}

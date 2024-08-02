@@ -1,25 +1,22 @@
-import { CompanyProducts } from 'features/Header';
+export type NavLink = {
+    item: string;
+    isExternal: boolean;
+    link: string;
+};
 
-export const navItems = [
-	{
-		isNode: true,
-		item: <CompanyProducts />,
-	},
+export const navLinks: NavLink[] = [
 	{
 		isExternal: false,
-		isNode: false,
 		item: 'Пакеты',
 		link: '/',
 	},
 	{
 		isExternal: true,
-		isNode: false,
 		item: 'API',
 		link: '/',
 	},
 	{
 		isExternal: false,
-		isNode: false,
 		item: 'Блог',
 		link: '/',
 	},

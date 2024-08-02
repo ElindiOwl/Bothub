@@ -1,26 +1,40 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react';
+import { eventSystem } from 'shared/lib/event-system.ts';
 
-export const useMenu = () => {
-	const [isMenuOpen, setIsMenuOpen] = useState(false)
-	const menuRef = useRef<HTMLDivElement>(null)
+
+export const useMenu = (menuName) => {
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const menuRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		const handleOutsideClick = (event: MouseEvent) => {
-			if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-				setIsMenuOpen(false)
+		const handleOutsideClick = (event) => {
+			if (menuRef.current && !menuRef.current.contains(event.target)) {
+				setIsMenuOpen(false);
 			}
-		}
+		};
 
-		document.addEventListener('click', handleOutsideClick)
+		const handleMenuEvent = (openMenuName) => {
+			if (openMenuName !== menuName) {
+				setIsMenuOpen(false);
+			}
+		};
+
+		document.addEventListener('click', handleOutsideClick);
+		eventSystem.subscribe('menuToggled', handleMenuEvent);
 
 		return () => {
-			document.removeEventListener('click', handleOutsideClick)
-		}
-	}, [])
+			document.removeEventListener('click', handleOutsideClick);
+			eventSystem.unsubscribe('menuToggled', handleMenuEvent);
+		};
+	}, [menuName]);
 
 	const toggleMenu = () => {
-		setIsMenuOpen(!isMenuOpen)
-	}
+		const newState = !isMenuOpen;
+		setIsMenuOpen(newState);
+		if (newState) {
+			eventSystem.publish('menuToggled', menuName);
+		}
+	};
 
-	return { isMenuOpen, menuRef, toggleMenu }
-}
+	return { isMenuOpen, menuRef, toggleMenu };
+};
