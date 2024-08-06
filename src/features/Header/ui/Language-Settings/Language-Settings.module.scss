@@ -1,8 +1,4 @@
 .langSettings {
-
-}
-
-.langSettings__button {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -11,11 +7,11 @@
   color: var(--color-darktheme-base-white);
 }
 
-.langSettings__button:hover {
+.langSettings:hover {
   color: var(--color-darktheme-primary);
 }
 
-.langSettings__button_active {
+.langSettings_active {
   color: var(--color-darktheme-primary);
 }
 
@@ -33,7 +29,7 @@
   transition: transform 0.3s ease;
 }
 
-.langSettings__button_active svg {
+.langSettings_active svg {
   transform: rotate(-180deg);
 }
 
@@ -50,6 +46,28 @@
   border: var(--border-gray-2);
   border-radius: 8px;
   padding: 16px 20px;
+}
+
+.langSettings__enter {
+  opacity: var(--header-dropdown-enter-opacity);
+  transform: var(--header-dropdown-enter-scale-Y) var(--header-dropdown-enter-scale-X);
+  transform-origin: var(--header-dropdown-transform-origin-narrow);
+}
+
+.langSettings__enter_active {
+  opacity: var(--header-dropdown-enter-active-opacity);
+  transform: var(--header-dropdown-enter-active-scale-Y) var(--header-dropdown-enter-active-scale-X);
+  transition: var(--header-dropdown-enter-active-transition-opacity), var(--header-dropdown-enter-active-transition-transform);
+  transform-origin: var(--header-dropdown-transform-origin-narrow);
+}
+
+.langSettings__exit {
+  opacity: var(--header-dropdown-exit-opacity);
+}
+
+.langSettings__exit_active {
+  opacity: var(--header-dropdown-exit-active-opacity);
+  transition: var(--header-dropdown-exit-active-transition-opacity), var(--header-dropdown-exit-active-transition-transform);
 }
 
 @media screen and (max-width: 1100px) {

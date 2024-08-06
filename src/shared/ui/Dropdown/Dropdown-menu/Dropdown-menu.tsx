@@ -1,6 +1,7 @@
 import { FC, MouseEventHandler, ReactNode, useEffect } from 'react';
+import { cn } from 'shared/lib';
 import { DropdownShell } from 'shared/ui';
-import { cn, useMenu } from 'shared/lib';
+import { useMenu } from 'shared/model';
 
 interface DropdownControlProps {
     listNodeToUse: ReactNode;
@@ -12,8 +13,16 @@ interface DropdownMenuProps extends DropdownControlProps {
     shellContainerStyling: string;
     onMenuToggle: (isOpen: boolean) => void;
     menuName: string;
+    disablePageScroll?: boolean;
     activeStyle?: string;
     inactiveStyle?: string;
+    animationClasses?: {
+        enter: string;
+        enterActive: string;
+        exit: string;
+        exitActive: string;
+    };
+    animationTimeout?: number;
 }
 
 export const DropdownMenu: FC<DropdownMenuProps> = ({
@@ -23,10 +32,14 @@ export const DropdownMenu: FC<DropdownMenuProps> = ({
 	shellContainerStyling,
 	onMenuToggle,
 	menuName,
+	disablePageScroll = false,
 	activeStyle = '',
 	inactiveStyle = '',
+	animationClasses = {},
+	animationTimeout = 0,
+
 }) => {
-	const { isMenuOpen, toggleMenu, menuRef } = useMenu(menuName);
+	const { isMenuOpen, toggleMenu, menuRef } = useMenu(menuName, disablePageScroll);
 	const appliedStyle = cn(
 		[inactiveStyle],
 		{ [activeStyle]: isMenuOpen },
@@ -47,14 +60,14 @@ export const DropdownMenu: FC<DropdownMenuProps> = ({
 			<div className={appliedStyle} onClick={toggleMenu}>
 				{children}
 			</div>
-			{isMenuOpen && (
-				<DropdownShell
-					containerStyling={shellContainerStyling}
-					nodeToUse={listNodeToUse}
-					portalElement={elementToHook}
-					toggleRef={menuRef}
-				/>
-			)}
+			<DropdownShell
+				animationClasses={animationClasses}
+				animationTimeout={animationTimeout}
+				containerStyling={shellContainerStyling}
+				isMenuOpen={isMenuOpen}
+				nodeToUse={listNodeToUse}
+				portalElement={elementToHook}
+				toggleRef={menuRef} />
 		</div>
 	);
 };

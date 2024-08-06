@@ -1,16 +1,22 @@
-import { Button, DropdownMenu, NavigationList } from 'shared/ui';
-import { HEADER, navLinks } from 'entities/Header';
+import { Button, DropdownMenu } from 'shared/ui';
+import { HEADER } from 'entities/Header';
 import { BurgerMenuSVG } from 'shared/assets';
-import { useIdToHook, useMenu } from 'shared/lib';
-import { CompanyProductsAccordion } from 'features/Header';
+import { useIdToHook, useMenu } from 'shared/model';
+import { BurgerNavList } from 'widgets/Burger-nav-list';
 
 import style from './Burger-navigation.module.scss';
 
 export const BurgerNavigation = () => {
 	const headerElement = useIdToHook(HEADER);
-	const listNode = <NavigationList linksToUse={navLinks} nodesToUse={[<CompanyProductsAccordion />]}
-		styleToUse={style.burgerNav__list} />;
+	const listNode = <BurgerNavList />;
 	const menuName = 'BurgerNavigation';
+	const animationTimeOut = 100;
+	const animationClasses = {
+		enter: style.burgerNav__enter,
+		enterActive: style.burgerNav__enter_active,
+		exit: style.burgerNav_exit,
+		exitActive: style.burgerNav__exit_active,
+	};
 
 	const { isMenuOpen, toggleMenu, menuRef } = useMenu(menuName);
 
@@ -25,6 +31,9 @@ export const BurgerNavigation = () => {
 	return (
 		<div ref={menuRef} className={style.burgerNav}>
 			<DropdownMenu
+				animationClasses={animationClasses}
+				animationTimeout={animationTimeOut}
+				disablePageScroll={true}
 				elementToHook={headerElement}
 				listNodeToUse={listNode}
 				menuName={menuName}

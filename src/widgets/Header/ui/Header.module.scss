@@ -25,8 +25,24 @@
   gap: 36px;
 }
 
+.header__auth {
+  display: block;
+}
+
 @media screen and (max-width: 1100px) {
   .header__options {
     gap: 34px;
+  }
+  .header__auth {
+    height: 38px !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header {
+    padding: 0 30px;
+  }
+  .header__auth {
+    display: none;
   }
 }

@@ -1,8 +1,14 @@
 import { cn } from 'shared/lib';
+import { FC } from 'react';
 
 import style from './Burger-menu.module.scss';
 
-export const BurgerMenuSVG = ({ isOpen, toggleMenu }) => {
+export type SVGTypes = {
+    isOpen: boolean,
+    toggleMenu: () => void,
+}
+
+export const BurgerMenuSVG: FC<SVGTypes> = ({ isOpen, toggleMenu }) => {
 
 	return (
 		<svg className={cn([], { [style.open]: isOpen })} fill="none" height="18" viewBox="0 0 18 18"

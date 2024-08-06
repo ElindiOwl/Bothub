@@ -1,0 +1,26 @@
+.burgerNavList {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 38px;
+}
+
+.burgerNavList a {
+  color: var(--color-darktheme-base-white);
+  font: var(--body-m-semibold);
+}
+
+.burgerNavList a:hover {
+  color: var(--color-darktheme-primary-light);
+}
+
+.burgerNavList__button {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .burgerNavList__button {
+    margin: auto 0 -20px 0;
+    display: block;
+  }
+}

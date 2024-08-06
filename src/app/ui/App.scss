@@ -3,6 +3,7 @@
 
 #root {
   --font-family-text: 'IBM Plex Sans', 'sans-serif';
+  font-family: var(--font-family-text);
 
   background-color: var(--color-darktheme-base-black);
 
@@ -101,7 +102,26 @@
 
   --button-shadow: rgba(255, 255, 255, 0.4) 0 1px 1px 0 inset;
 
-  font-family: var(--font-family-text);
+  // animations
+
+  --header-dropdown-enter-opacity: 0;
+  --header-dropdown-enter-active-opacity: 1;
+  --header-dropdown-exit-opacity: 1;
+  --header-dropdown-exit-active-opacity: 0;
+
+  --header-dropdown-enter-scale-X: scaleX(0.1);
+  --header-dropdown-enter-scale-Y: scaleY(0.1);
+  --header-dropdown-enter-active-scale-X: scaleX(1);
+  --header-dropdown-enter-active-scale-Y: scaleY(1);
+
+  --header-dropdown-transform-origin-narrow: top;
+  --header-dropdown-transform-origin-wide: top left;
+
+  --header-dropdown-enter-active-transition-opacity: opacity 200ms ease;
+  --header-dropdown-enter-active-transition-transform: transform 200ms ease;
+
+  --header-dropdown-exit-active-transition-opacity: opacity 300ms ease;
+  --header-dropdown-exit-active-transition-transform: transform 300ms ease;
 }
 
 h1 {

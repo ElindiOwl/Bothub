@@ -1,7 +1,7 @@
 import { DropdownMenu } from 'shared/ui';
-import { useIdToHook } from 'shared/lib';
 import { HEADER, LanguageList } from 'entities/Header';
 import { ArrowSVG, GlobeSVG } from 'shared/assets';
+import { useIdToHook } from 'shared/model';
 
 import style from './Language-Settings.module.scss';
 
@@ -9,6 +9,13 @@ export const LanguageSettings = () => {
 	const headerElement = useIdToHook(HEADER);
 	const listNode = <LanguageList />;
 	const menuName = 'LanguageSettings';
+	const animationTimeOut = 100;
+	const animationClasses = {
+		enter: style.langSettings__enter,
+		enterActive: style.langSettings__enter_active,
+		exit: style.langSettings__exit,
+		exitActive: style.langSettings__exit_active,
+	};
 
 	if (!headerElement) {
 		return null;
@@ -16,9 +23,11 @@ export const LanguageSettings = () => {
 
 	return (
 		<DropdownMenu
-			activeStyle={style.langSettings__button_active}
+			activeStyle={style.langSettings_active}
+			animationClasses={animationClasses}
+			animationTimeout={animationTimeOut}
 			elementToHook={headerElement}
-			inactiveStyle={style.langSettings__button}
+			inactiveStyle={style.langSettings}
 			listNodeToUse={listNode}
 			menuName={menuName}
 			shellContainerStyling={style.langSettings__dropdown}
