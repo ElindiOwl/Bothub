@@ -1,0 +1,57 @@
+.conversation {
+  display: flex;
+  flex-direction: column;
+  color: var(--color-darktheme-base-white);
+  padding: 12px 24px 84px 24px;
+  gap: 24px;
+  font: var(--body-m-regular);
+  margin-bottom: auto;
+  overflow-y: auto;
+}
+
+.conversation__container {
+  display: flex;
+}
+
+.conversation__messages {
+  align-items: flex-end;
+}
+
+.conversation__icon {
+  width: 40px;
+  height: 40px;
+}
+
+.conversation__text {
+  padding: 14px 16px;
+  border-radius: 10px;
+}
+
+.conversation__interlocutor {
+  align-items: flex-start;
+}
+
+.conversation__interlocutor_name {
+  margin-left: 50px;
+}
+
+.conversation__interlocutor_text {
+  background-color: var(--color-darktheme-gray-scale-gray-2);
+  border-bottom-left-radius: 0;
+  max-width: 80%;
+}
+
+.conversation__user {
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.conversation__user_img {
+  order: 2;
+}
+
+.conversation__user_text {
+  background-color: var(--color-darktheme-primary);
+  border-bottom-right-radius: 0;
+  max-width: 80%;
+}

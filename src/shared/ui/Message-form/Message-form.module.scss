@@ -1,0 +1,41 @@
+.messageContainer {
+  display: flex;
+  width: 100%;
+}
+
+.messageContainer__form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  cursor: text;
+  padding: 14px 20px;
+  gap: 14px;
+  width: 100%;
+}
+
+.messageContainer__text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.messageContainer__input {
+  color: white;
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  resize: none;
+  overflow-wrap: break-word;
+  overflow: hidden;
+  white-space: pre-wrap;
+}
+
+.messageContainer__input:active,
+.messageContainer__input:focus {
+  outline: none;
+  border: none;
+}

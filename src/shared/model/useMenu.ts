@@ -1,14 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 
-import { eventSystem } from './event-system.ts';
+import { eventSystem } from './event-system';
 
-export const useMenu = (menuName, disablePageScroll = false) => {
-	const [isMenuOpen, setIsMenuOpen] = useState(false);
+export const useMenu = (menuName: string, disablePageScroll: boolean = false) => {
+	const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 	const menuRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		const handleOutsideClick = (event) => {
-			if (menuRef.current && !menuRef.current.contains(event.target)) {
+		const handleOutsideClick = (event: MouseEvent) => {
+			const target = event.target as HTMLElement;
+			if (menuRef.current && !menuRef.current.contains(target)) {
 				setIsMenuOpen(false);
 				if (disablePageScroll) {
 					document.body.style.overflow = '';
@@ -16,7 +17,7 @@ export const useMenu = (menuName, disablePageScroll = false) => {
 			}
 		};
 
-		const handleMenuEvent = (openMenuName) => {
+		const handleMenuEvent = (openMenuName: string) => {
 			if (openMenuName !== menuName) {
 				setIsMenuOpen(false);
 				if (disablePageScroll) {

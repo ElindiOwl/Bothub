@@ -1,0 +1,8 @@
+.chatHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: var(--color-darktheme-base-white);
+  padding: 16px 24px;
+  border-bottom: var(--border-gray-5);
+}

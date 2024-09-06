@@ -35,7 +35,12 @@ export const DropdownMenu: FC<DropdownMenuProps> = ({
 	disablePageScroll = false,
 	activeStyle = '',
 	inactiveStyle = '',
-	animationClasses = {},
+	animationClasses = {
+		enter: '',
+		enterActive: '',
+		exit: '',
+		exitActive: '',
+	},
 	animationTimeout = 0,
 
 }) => {

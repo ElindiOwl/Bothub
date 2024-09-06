@@ -3,3 +3,7 @@ export * from './Button/Button.tsx';
 export * from './Navigation-list/Navigation-list.tsx';
 export * from './Accordion/index.ts';
 export * from './Dropdown/index.ts';
+export * from './Animated-background/Animated-border.tsx';
+export * from './Custom-checkbox/Custom-checkbox.tsx';
+export * from './Message-form/Message-form.tsx';
+export * from './Conversation-message/Conversation-message.tsx';

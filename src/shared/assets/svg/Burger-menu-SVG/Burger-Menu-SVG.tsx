@@ -3,7 +3,7 @@ import { FC } from 'react';
 
 import style from './Burger-menu.module.scss';
 
-export type SVGTypes = {
+export interface SVGTypes {
     isOpen: boolean,
     toggleMenu: () => void,
 }

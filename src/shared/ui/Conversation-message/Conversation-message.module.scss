@@ -1,0 +1,17 @@
+.conversation__container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.conversation__messages {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.text {
+  display: flex;
+  align-self: center;
+  height: 100%;
+}

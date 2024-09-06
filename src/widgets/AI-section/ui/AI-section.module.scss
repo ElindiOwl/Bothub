@@ -1,0 +1,13 @@
+.sectionContainer {
+  display: flex;
+  justify-content: center;
+  padding: 120px 0 14px 0;
+}
+
+.sectionContainer__content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 40px;
+  gap: 30px;
+}

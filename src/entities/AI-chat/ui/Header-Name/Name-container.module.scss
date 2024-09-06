@@ -1,0 +1,25 @@
+.nameContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+
+.nameContainer__icon {
+  width: 50px;
+  height: 50px;
+}
+
+.nameContainer__description {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.nameContainer__name {
+  font: var(--body-m-regular);
+}
+
+.nameContainer__membership {
+  font: var(--body-s-regular);
+  color: var(--color-darktheme-gray-scale-gray-1);
+}

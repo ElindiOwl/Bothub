@@ -7,6 +7,16 @@
 
   background-color: var(--color-darktheme-base-black);
 
+  z-index: var(--index-base);
+
+  // z-indexes
+
+  --index-special: -1;
+  --index-base: -2;
+  --index-overlaying: 1;
+  --index-standart: 2;
+  --index-header: 3;
+
   // Desktop headlines
 
   --font-headline-line-height-h1: 60px;
@@ -93,10 +103,19 @@
   --color-darktheme-gray-scale-gray-6: #9CA3AF;
   --color-darktheme-gray-scale-gray-7: #171E2F;
 
+  --color-other-critic: #FE4242;
+  --color-other-critic-2: #CC3131;
+  --color-other-critic-3: #8D1F1F;
+
   // borders
 
+  --border-primary: 1px solid var(--color-darktheme-primary);
+
+  --border-gray-1: 1px solid var(--color-darktheme-gray-scale-gray-1);
   --border-gray-2: 1px solid var(--color-darktheme-gray-scale-gray-2);
   --border-gray-3: 1px solid var(--color-darktheme-gray-scale-gray-3);
+  --border-gray-4: 1px solid var(--color-darktheme-gray-scale-gray-4);
+  --border-gray-5: 1px solid var(--color-darktheme-gray-scale-gray-5);
 
   // shadows
 
@@ -122,6 +141,39 @@
 
   --header-dropdown-exit-active-transition-opacity: opacity 300ms ease;
   --header-dropdown-exit-active-transition-transform: transform 300ms ease;
+
+  // scrollbar
+
+  --scrollbar-background: var(--color-darktheme-gray-scale-gray-4);
+  --scrollbar-background-thumb: var(--color-darktheme-primary-light);
+  --scrollbar-background-track: var(--color-darktheme-gray-scale-gray-5);
+  --scrollbar-border-radius: 3px;
+  --scrollbar-width: 6px;
+  --scrollbar-height: 6px;
+
+}
+
+* {
+  &::-webkit-scrollbar {
+    width: var(--scrollbar-width);
+    height: var(--scrollbar-height);
+    background: var(--scrollbar-background);
+    border-radius: var(--scrollbar-border-radius);
+  }
+
+  &::-webkit-scrollbar-corner {
+    display: none;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--scrollbar-background-track);
+    border-radius: var(--scrollbar-border-radius);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-background-thumb);
+    border-radius: var(--scrollbar-border-radius);
+  }
 }
 
 h1 {

@@ -10,10 +10,11 @@ interface ButtonTextProps {
 
 interface ButtonProps extends ButtonTextProps {
     onClick?: () => void;
+    type?: 'submit' | 'reset' | 'button';
 }
 
-export const Button: FC<ButtonProps> = ({ text, additionalStyles, onClick }) => {
+export const Button: FC<ButtonProps> = ({ text, additionalStyles = '', onClick, type = undefined }) => {
 	return (
-		<button className={cn([style.primaryButton, additionalStyles])} onClick={onClick}>{text}</button>
+		<button className={cn([style.primaryButton, additionalStyles])} type={type} onClick={onClick}>{text}</button>
 	);
 };
