@@ -2,6 +2,19 @@
   display: flex;
   justify-content: center;
   padding: 120px 0 14px 0;
+  position: relative;
+}
+
+.sectionContainer__background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('shared/assets/svg/Section-background-grid.svg');
+  background-size: contain;
+  background-position: center center;
+  background-repeat: repeat-x;
+  opacity: 0.35;
 }
 
 .sectionContainer__content {
@@ -10,4 +23,10 @@
   align-items: center;
   padding: 0 40px;
   gap: 30px;
+}
+
+@media screen and (max-width: 1050px) {
+  .sectionContainer__content {
+    flex-direction: column;
+  }
 }

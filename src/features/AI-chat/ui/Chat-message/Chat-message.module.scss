@@ -36,3 +36,20 @@
 .message__input::placeholder {
   color: var(--color-darktheme-gray-scale-gray-1);
 }
+
+.message__background {
+  position: absolute;
+  width: 237px;
+  height: 138px;
+  left: 0;
+  bottom: 0;
+  top: -45px;
+  border-bottom-left-radius: 24px;
+  overflow: hidden;
+}
+
+.message__background svg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}

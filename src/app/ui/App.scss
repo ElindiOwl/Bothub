@@ -151,6 +151,13 @@
   --scrollbar-width: 6px;
   --scrollbar-height: 6px;
 
+  // breakPoints
+
+  --fullscreen-breakPoint: 1450px;
+  --laptop-breakPoint: 1170px;
+  --tablet-breakPoint: 1050px;
+  --phone-breakPoint: ;
+
 }
 
 * {
@@ -174,6 +181,19 @@
     background-color: var(--scrollbar-background-thumb);
     border-radius: var(--scrollbar-border-radius);
   }
+}
+
+body::-webkit-scrollbar {
+  width: 6px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #374151FF;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #4785FFFF;
+  border-radius: 3px;
 }
 
 h1 {

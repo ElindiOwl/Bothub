@@ -4,3 +4,6 @@ export * from './logo-SVG.tsx';
 export * from './Burger-menu-SVG/Burger-Menu-SVG.tsx';
 export * from './CheckMark-SVG.tsx';
 export * from './Vector-SVG.tsx';
+export * from './Message-background-shapes.tsx';
+export * from './Chat-background-shapes.tsx';
+export * from './Section-background-grid.tsx';

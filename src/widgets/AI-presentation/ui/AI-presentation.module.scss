@@ -1,6 +1,8 @@
 .presentation {
+  position: relative;
   height: fit-content;
-  width: 741px;
+  width: fit-content;
+  max-width: 741px;
 }
 
 .presentation__background {
@@ -11,6 +13,27 @@
 
 .presentation__wrapper {
   padding: 1px;
+  z-index: var(--index-standart);
+}
+
+.presentation__lights {
+  display: flex;
+  position: absolute;
+  width: 1424px;
+  height: 831px;
+  left: -100%;
+  top: -20%;
+}
+
+.presentation__lights svg {
+  display: flex;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 10%;
+  top: 0;
+  right: 0;
+  bottom: 0;
 }
 
 @keyframes irregular-sliding {
@@ -22,5 +45,31 @@
   }
   100% {
     background-position: 0 50%;
+  }
+}
+
+@media screen and (max-width: var(--fullscreen-breakPoint)) {
+  .presentation__lights {
+    width: 1224px;
+  }
+  .presentation__lights svg {
+    left: 20%;
+    top: -10%;
+  }
+}
+
+@media screen and (max-width: var(--laptop-breakPoint)) {
+  .presentation__lights {
+    width: 924px;
+  }
+  .presentation__lights svg {
+    left: 35%;
+    top: -20%;
+  }
+}
+
+@media screen and (max-width: var(--tablet-breakPoint)) {
+  .presentation__lights {
+    display: none;
   }
 }

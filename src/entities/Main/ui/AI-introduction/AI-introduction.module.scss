@@ -2,6 +2,7 @@
   color: var(--color-darktheme-base-white);
   width: 519px;
   height: fit-content;
+  z-index: var(--index-standart);
 }
 
 .introduction__description {
@@ -11,4 +12,10 @@
 
 .introduction__button {
   margin-top: 42px;
+}
+
+@media screen and (max-width: 1250px) {
+  .introduction__header {
+    font: var(--header-h2-semibold);
+  }
 }
